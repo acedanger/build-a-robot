@@ -15,7 +15,7 @@
           <img :src="selectedRobot.base.src"/>
         </div>
       </div>
-      </CollapsibleSection>    
+      </CollapsibleSection>
       <button class="add-to-cart" @click="addToCart()">Add to cart</button>
     </div>
     <div class="top-row">
