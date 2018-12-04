@@ -1,6 +1,13 @@
 <template>
   <div class="part" :class="position">
-    <img @click="showPartInfo()" :src="selectedPart.src" title="arm"/>
+    <router-link :to="{
+        name: 'Parts',
+        params: {
+          id: this.selectedPart.id,
+          partType: this.selectedPart.type,
+        }}">
+      <img :src="selectedPart.src" title="arm"/>
+    </router-link>
     <button @click="selectPreviousPart()" class="prev-selector"></button>
     <button @click="selectNextPart()" class="next-selector"></button>
     <span class="sale" v-show="selectedPart.onSale">Sale!</span>
@@ -47,18 +54,6 @@ export default {
     this.emitSelectedPart();
   },
   methods: {
-    showPartInfo() {
-      // this syntax is used for programmatically routing to a new component
-      // this.$router.push('/parts');
-      // alternative syntax, route by name
-      this.$router.push({
-        name: 'Parts',
-        params: {
-          id: this.selectedPart.id,
-          partType: this.selectedPart.type,
-        },
-      });
-    },
     emitSelectedPart() {
       this.$emit('partSelected', this.selectedPart);
     },
