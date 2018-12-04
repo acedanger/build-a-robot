@@ -49,9 +49,15 @@ export default {
   methods: {
     showPartInfo() {
       // this syntax is used for programmatically routing to a new component
-      this.$router.push('/parts');
+      // this.$router.push('/parts');
       // alternative syntax, route by name
-      // this.$router.push({name: 'Parts'});
+      this.$router.push({
+        name: 'Parts',
+        params: {
+          id: this.selectedPart.id,
+          partType: this.selectedPart.type,
+        },
+      });
     },
     emitSelectedPart() {
       this.$emit('partSelected', this.selectedPart);

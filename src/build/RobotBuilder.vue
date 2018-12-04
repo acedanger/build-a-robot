@@ -38,7 +38,7 @@
         position="center"
         @partSelected="part => selectedRobot.torso=part" />
       <PartSelector
-      :parts="availableParts.arms"
+        :parts="availableParts.arms"
         position="right"
         @partSelected="part => selectedRobot.rightArm=part" />
     </div>
